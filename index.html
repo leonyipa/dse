@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<style>
+.logo	{
+	background-image:url("/img/fox-cartoon.webp");
+	width:100px;
+	height:100px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display:inline-block;
+}
+.mobileFrame {
+	background-color:#FFFAEB;
+	width:400px;
+	height:550px;
+	margin:auto;
+}
+.question{
+	margin:12px;padding:8px;background-color:#fff;border-radius:12px;border: 3px solid #ebe6e7;
+}
+
+.bubble {
+	margin:12px;padding:8px;background-color:#fff;border-radius:12px;border: 3px solid #ebe6e7;
+}
+
+.bubble:hover {
+	background-color:#F9FAFB; border: 3px solid #D1D5DC; cursor:pointer;
+}
+
+.bubble.correct {
+	background-color:#F0FDF4; border: 3px solid #05DF72;
+}
+
+.bubble.incorrect {
+	background-color:#FEF2F2; border: 3px solid #FF6467;
+}
+
+.hint{
+	font-size: 12px;
+	color:#ff6b35;
+}
+
+.progressbar {
+  background-color: #ebe6e7;
+  border-radius: 13px;
+  margin:8px 0;
+}
+
+.progressbar>div {
+  background-color: orange;
+  width: 0%;
+  height: 10px;
+  border-radius: 10px;
+}
+
+.hint{
+	position:fixed;
+	top: 90px;
+	
+	margin-left:20px;padding:8px;background-color:#fff;border-radius:12px;border: 3px solid #ebe6e7;
+}
+
+.hint:hover {
+	background-color:#F9FAFB; border: 3px solid #D1D5DC; cursor:pointer;
+}
+
+.hintContent {
+	width:340px;
+}
+
+html,body{
+	font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;
+	margin:0;padding:0;
+	background-color:#000;
+}
+</style>
+
+<div class="mobileFrame">
+	<div style="padding:20px">
+		<div class="logo"></div>
+		<div style="display:inline-block; height:100px; vertical-align:top;padding-left: 10px;">
+			<p style="color:#1e2939; font-size:24px; margin:0; padding-top:20px;font-weight:700">HKDSE Mathematics</p>
+			<p style="color:##4a5565; font-size:16px; margin:0">Chapter 1 - Quadratic Equations<p>
+		</div>
+		
+		<div style="font-weight:700">
+		Question 1 of 3
+		</div>
+		<div class="progressbar">
+			<div style="width:33%"></div>
+		</div>
+		<div style="font-size: 12px;">
+		33% Complete
+		</div>
+		
+		<div class="question">
+			x²−6x+k=0 has real roots. Find the range of k.
+		</div>
+
+		<div class="bubble" id="ans-1" onClick="submitAnswer('1');">
+			(A) k <= 9
+		</div>
+		
+		<div class="bubble" id="ans-2" onClick="submitAnswer('2');">
+			(B) k <= 8
+		</div>
+		
+		<div class="bubble" id="ans-3" onClick="submitAnswer('3');">
+			(C) k <= 7
+		</div>
+		
+		<div class="bubble" id="ans-4" onClick="submitAnswer('4');">
+			(D) k <= 6
+		</div>
+	</div>
+	
+	<div class="hint" onClick="openHint();">💡 Hint?
+	
+		<div class ="hintContent" id="hintContent" style="display:none;">For a quadratic equation to have real roots, the discriminant must be non-negative. Remember: Δ = b² - 4ac ≥ 0
+		</div>
+	</div>
+</div>
+
+
+
+</div>
+
+</body>
+<script>
+let openHint = function(){
+	if (document.getElementById(`hintContent`).style.display == 'none')
+		document.getElementById(`hintContent`).style.display = 'block';
+	else
+		document.getElementById(`hintContent`).style.display = 'none';
+}
+let questionData = {
+	1:{question:"",answer:'1',input:''}
+}
+
+let submitAnswer = function(value){
+	if (questionData[1].input !== '')
+		return;
+	
+	if (value === questionData[1].answer){ //true
+		document.getElementById(`ans-${value}`).className = "bubble correct";
+	}
+	else{  //false
+		document.getElementById(`ans-${questionData[1].answer}`).className = "bubble correct";
+		document.getElementById(`ans-${value}`).className = "bubble incorrect";
+	}
+	
+	questionData[1].input = value;
+}
+</script>
+</html>
+
+<script>
+</script>
