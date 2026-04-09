@@ -16,7 +16,7 @@
 .mobileFrame {
 	background-color:#FFFAEB;
 	width:400px;
-	height:570px;
+	height:889px;
 	margin:auto;
 	
 	transform-origin: top;
@@ -218,7 +218,7 @@ let nextQuestion = function(){
 nextQuestion();
 
 let resizePage = function(){
-	document.getElementById("mobileFrame").style.transform = `scale(${window.innerHeight/570})`;
+	document.getElementById("mobileFrame").style.transform = `scale(${window.innerHeight/889})`;
 }
 resizePage();
 window.addEventListener('resize', (event) => {
