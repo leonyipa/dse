@@ -18,6 +18,8 @@
 	width:400px;
 	height:570px;
 	margin:auto;
+	
+	transform-origin: top;
 }
 .question{
 	margin:12px;padding:8px;background-color:#fff;border-radius:12px;border: 3px solid #ebe6e7;
@@ -84,10 +86,11 @@ html,body{
 	font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;
 	margin:0;padding:0;
 	background-color:#000;
+	overflow:hidden;
 }
 </style>
 
-<div class="mobileFrame">
+<div id="mobileFrame" class="mobileFrame">
 	<div style="padding:20px">
 		<div class="logo"></div>
 		<div style="display:inline-block; height:100px; vertical-align:top;padding-left: 10px;">
@@ -214,6 +217,13 @@ let nextQuestion = function(){
 }
 nextQuestion();
 
+let resizePage = function(){
+	document.getElementById("mobileFrame").style.transform = `scale(${window.innerHeight/570})`;
+}
+resizePage();
+window.addEventListener('resize', (event) => {
+    resizePage();
+});
 </script>
 </html>
 
